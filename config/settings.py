@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'users',
     'meals',
     'patient',
+    'meal_selection',
+    'feedback',
 ]
 
 MIDDLEWARE = [
