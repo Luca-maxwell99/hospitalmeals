@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from users import views as users_views
 from meals import views as meals_views
+from patient import views as patient_views
 
 urlpatterns = [
+    path('patient/', patient_views.patient, name='patients'),
     path('meals/', meals_views.meal_view, name='meals'),  # Reference meals_views for the meal_view
     path('', users_views.home, name='home'),  # Reference users_views for the home view
     path('admin/', admin.site.urls),
