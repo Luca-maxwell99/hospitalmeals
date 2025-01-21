@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select a Meal</title>
+   
+</head>
+<body>
+    <header>
+        <h1>Meal Selector Application</h1>
+        <nav>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Select a Meal</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Confirm Selection</button>
+        </form>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Meal Selector</p>
+    </footer>
+</body>
+</html>
