@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'meals',
-    'patient',
     'meal_selection',
     'feedback',
 ]
