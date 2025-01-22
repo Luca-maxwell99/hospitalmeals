@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .forms import MealSelectionForm
 from .models import MealSelection
 from django.contrib.auth.decorators import login_required
@@ -11,7 +11,7 @@ def meal_selection_view(request):
             meal_selection = form.save(commit=False)
             meal_selection.user = request.user  # Set the user manually
             meal_selection.save()
-            return redirect('meal_selection_success')  # Redirect after successful form submission
+            return HttpResponse("Success") # Redirect after successful form submission
     else:
         form = MealSelectionForm()
     return render(request, 'meal_selection/meal_selection_form.html', {'form': form})

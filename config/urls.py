@@ -18,11 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from users import views as users_views
 from meals import views as meals_views
-from feedback import views as feedback_views
 
 
 urlpatterns = [
-    path('feedback/', feedback_views.feedback, name='feedback'),
     path('', include('meal_selection.urls')),
     path('meals/', meals_views.meal_view, name='meals'),  # Reference meals_views for the meal_view
     path('', users_views.home, name='home'),  # Reference users_views for the home view
