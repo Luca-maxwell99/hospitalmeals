@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .forms import MealSelectionForm
 from .models import MealSelection
-from django.contrib.auth.decorators import login_required
 
-@login_required
+
 def meal_selection_view(request):
     if request.method == 'POST':
         form = MealSelectionForm(request.POST)
