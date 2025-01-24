@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Select a Meal</title>
-   
+    <!-- <title>Select a Meal</title> -->
+    {% if title %}
+    <title> {{title}} </title>
+  {% else %}
+    <title>Home</title>
+  {% endif %}
 </head>
 <body>
     <header>
