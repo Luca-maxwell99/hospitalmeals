@@ -1,10 +1,64 @@
 {% extends 'meals/base.html' %}
 {% block content %}
 
+
+
 <h1>Meal List</h1>
-{% for meal in object_list %}
-<h2>{{ meal.name }}</h2>
-<p>Ingredients: {{ meal.ingredients }}</p>
-<p>Allergens: {{ allergens }}</p>
-{% endfor %}
+
+<div class="card my-4" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <p class="card-text">
+            {% with first_meal=object_list.0 %}
+                <h2>{{ first_meal.name }}</h2>
+                <p>Ingredients: {{ first_meal.ingredients }}</p>
+                <p>Allergens: {{ first_meal.allergens }}</p>
+            {% endwith %}
+        </p>
+        
+    </div>
+</div>
+<div class="card my-4" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <p class="card-text">
+            {% with first_meal=object_list.1 %}
+                <h2>{{ first_meal.name }}</h2>
+                <p>Ingredients: {{ first_meal.ingredients }}</p>
+                <p>Allergens: {{ first_meal.allergens }}</p>
+            {% endwith %}
+        </p>
+        
+    </div>
+</div>
+<div class="card my-4" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <p class="card-text">
+            {% with first_meal=object_list.2 %}
+                <h2>{{ first_meal.name }}</h2>
+                <p>Ingredients: {{ first_meal.ingredients }}</p>
+                <p>Allergens: {{ first_meal.allergens }}</p>
+            {% endwith %}
+        </p>
+        
+    </div>
+</div>
+<div class="card my-4" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <p class="card-text">
+            {% with first_meal=object_list.3 %}
+                <h2>{{ first_meal.name }}</h2>
+                <p>Ingredients: {{ first_meal.ingredients }}</p>
+                <p>Allergens: {{ first_meal.allergens }}</p>
+            {% endwith %}
+        </p>
+        
+    </div>
+</div>
+
 {% endblock content %}
+
+<!--
+-->
