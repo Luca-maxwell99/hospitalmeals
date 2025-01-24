@@ -38,8 +38,14 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
-APPEND_SLASH = True
-# settings.py
+
+
+
+LOGIN_URL = '/accounts/login/'  
+LOGIN_REDIRECT_URL = 'home'
+
+
+
 #LOGIN_REDIRECT_URL = '/home/'
 
 
