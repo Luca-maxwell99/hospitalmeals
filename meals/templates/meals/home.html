@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title %}
-      <title> {{title}} </title>
-    {% else %}
-      <title>Home</title>
-    {% endif %}
-</head>
-<body>
-    <h1>Meal Selection Home</h1>
-
+{% extends 'meals/base.html' %}
+<!---->
+{% block content %}
+<h1>Meal Selection Home</h1>
+{% endblock content %}
 
 
 <!--    This is my landing page, i will have a title, nav bar with linked to sign up pages, carosel with images and a brief about description of my app and various hospital values -->
-</body>
-</html>
