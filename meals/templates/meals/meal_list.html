@@ -4,59 +4,33 @@
 
 
 <h1>Meal List</h1>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 meal-section">
+            <h2>Main Meals</h2>
+            {% for main in mains %}
+                <div class="card meal-card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ main.name }}</h5>
+                        <p class="card-text"><strong>Ingredients:</strong> {{ main.ingredients }}</p>
+                        <p class="card-text"><strong>Allergens:</strong> {{ main.allergens }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
 
-<div class="card my-4" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <p class="card-text">
-            {% with first_meal=object_list.0 %}
-                <h2>{{ first_meal.name }}</h2>
-                <p>Ingredients: {{ first_meal.ingredients }}</p>
-                <p>Allergens: {{ first_meal.allergens }}</p>
-            {% endwith %}
-        </p>
+        <div class="col-md-6 meal-section">
+            <h2>Side Dishes</h2>
+            {% for side in sides %}
+                <div class="card meal-card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ side.name }}</h5>
+                        <p class="card-text"><strong>Ingredients:</strong> {{ side.ingredients }}</p>
+                        <p class="card-text"><strong>Allergens:</strong> {{ side.allergens }}</p>
+                    </div>
+                </div>
+            {% endfor %}
         
-    </div>
-</div>
-<div class="card my-4" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <p class="card-text">
-            {% with first_meal=object_list.1 %}
-                <h2>{{ first_meal.name }}</h2>
-                <p>Ingredients: {{ first_meal.ingredients }}</p>
-                <p>Allergens: {{ first_meal.allergens }}</p>
-            {% endwith %}
-        </p>
-        
-    </div>
-</div>
-<div class="card my-4" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <p class="card-text">
-            {% with first_meal=object_list.2 %}
-                <h2>{{ first_meal.name }}</h2>
-                <p>Ingredients: {{ first_meal.ingredients }}</p>
-                <p>Allergens: {{ first_meal.allergens }}</p>
-            {% endwith %}
-        </p>
-        
-    </div>
-</div>
-<div class="card my-4" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <p class="card-text">
-            {% with first_meal=object_list.3 %}
-                <h2>{{ first_meal.name }}</h2>
-                <p>Ingredients: {{ first_meal.ingredients }}</p>
-                <p>Allergens: {{ first_meal.allergens }}</p>
-            {% endwith %}
-        </p>
-        
-    </div>
-</div>
 
 {% endblock content %}
 
