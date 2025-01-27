@@ -1,13 +1,13 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+from django.views import View
 from .models import Meal
 
-def meal_view(request):
-    meals = Meal.objects.all()  # Retrieve all Meal objects, change to 'filter(author=1)' if you want to filter by author
-    context = {
-        'object_list': meals,
-        'title': 'Available Meals'
-    }
-    return render(request, 'meals/meal_list.html', context)
+class MealListView(View):
+    def get(self, request):
+        mains = Meal.objects.filter(is_main=True)  # Get all main meals
+        sides = Meal.objects.filter(is_side=True)  # Get all side meals
+        return render(request, 'meals/meal_list.html', {'mains': mains, 'sides': sides})
+
 
 def home(request):
     return render(request, 'meals/home.html')

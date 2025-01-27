@@ -1,57 +1,36 @@
-from django.shortcuts import render, redirect, HttpResponse, reverse
-from .forms import MealSelectionForm
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import MealSelection
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+class UserMealSelectionListView(LoginRequiredMixin, ListView):
+    model = MealSelection
+    template_name = 'meal_selection/user_meal_selection_list.html'
 
+    def get_queryset(self):
+        return MealSelection.objects.filter(user=self.request.user)
 
-from django.shortcuts import render, redirect
-from django.urls import reverse
-from .forms import MealSelectionForm
+class MealSelectionDetailView(LoginRequiredMixin, DetailView):
+    model = MealSelection
+    template_name = 'meal_selection/meal_selection_detail.html'
 
-def meal_selection_view(request):
-    if request.method == 'POST':
-        form = MealSelectionForm(request.POST)
-        if form.is_valid():
-            meal_selection = form.save(commit=False)
-            meal_selection.user = request.user  # Set the user manually
-            meal_selection.save()
-            return redirect(reverse('meal_selection_list'))  # Redirect after successful form submission
-    else:
-        form = MealSelectionForm()
+class MealSelectionCreateView(LoginRequiredMixin, CreateView):
+    model = MealSelection
+    fields = ['meal', 'meal_type', 'confirmed']
+    template_name = 'meal_selection/meal_selection_form.html'
+    success_url = reverse_lazy('user_meal_selection_list')
 
-    context = {
-        'form': form,
-        'title': 'Meal Selection'
-    }
-    return render(request, 'meal_selection/meal_selection_form.html', context)
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
+class MealSelectionUpdateView(LoginRequiredMixin, UpdateView):
+    model = MealSelection
+    fields = ['meal', 'meal_type', 'confirmed']
+    template_name = 'meal_selection/meal_selection_form.html'
+    success_url = reverse_lazy('user_meal_selection_list')
 
-def meal_selection_list_view(request):
-
-    user = request.user
-
-    meal_selections = MealSelection.objects.filter(user=user)
-
-    str = ""
-
-    for meal in meal_selections:
-        str += meal.meal.name
-
-    print(str)
-
-    return HttpResponse(str)
-
-
-def edit_meal_selection_view(request, id):
-    meal_selection = MealSelection.objects.filter(id=id).first()
-
-    if request.method == 'POST':
-        form = MealSelectionForm(request.POST)
-        if form.is_valid():
-            meal_selection = form.save(commit=False)
-            meal_selection.user = request.user  # Set the user manually
-            meal_selection.save()
-            return redirect(reverse('meal_selection_list'))# Redirect after successful form submission
-    else:
-        form = MealSelectionForm()
-    return render(request, 'meal_selection/meal_selection_form.html', {'form': form})
+class MealSelectionDeleteView(LoginRequiredMixin, DeleteView):
+    model = MealSelection
+    template_name = 'meal_selection/meal_selection_confirm_delete.html'
+    success_url = reverse_lazy('user_meal_selection_list')

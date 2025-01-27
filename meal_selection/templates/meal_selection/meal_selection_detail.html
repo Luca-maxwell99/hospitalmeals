@@ -1,0 +1,21 @@
+{% extends 'meals/base.html' %}
+<!---->
+{% block content %}
+
+
+
+
+    <div class="container mt-5">
+        <h2>Meal Selection Detail</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>User:</strong> {{ object.user }}</li>
+            <li class="list-group-item"><strong>Meal:</strong> {{ object.meal }}</li>
+            <li class="list-group-item"><strong>Date Selected:</strong> {{ object.date_selected }}</li>
+            <li class="list-group-item"><strong>Meal Type:</strong> {{ object.get_meal_type_display }}</li>
+            <li class="list-group-item"><strong>Confirmed:</strong> {{ object.confirmed }}</li>
+        </ul>
+        <a href="{% url 'meal_selection_update' object.pk %}" class="btn btn-warning mt-3">Edit</a>
+        <a href="{% url 'meal_selection_delete' object.pk %}" class="btn btn-danger mt-3">Delete</a>
+    </div>
+
+    {% endblock content %}

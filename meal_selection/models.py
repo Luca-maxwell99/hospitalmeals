@@ -15,6 +15,7 @@ class MealSelection(models.Model):
     date_selected = models.DateTimeField(auto_now_add=True)
     meal_type = models.CharField(max_length=100, choices=MEAL_TYPE_CHOICES, default='lunch')
     confirmed = models.BooleanField(default=False)
+    id = models.AutoField(primary_key=True)
 
     def __str__(self):
         return f"{self.user} selected {self.meal} on {self.date_selected}"
