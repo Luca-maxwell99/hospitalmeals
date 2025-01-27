@@ -4,12 +4,17 @@
 
 
 <h1>Meal List</h1>
+
+<div class="container">
+    <p>Displayed below are the meals we have to offer</p>
+</div>
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6 meal-section">
             <h2>Main Meals</h2>
             {% for main in mains %}
                 <div class="card meal-card">
+                    <img src="{{ main.featured_image.url }}" class="card-img-top" alt="{{ main.name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ main.name }}</h5>
                         <p class="card-text"><strong>Ingredients:</strong> {{ main.ingredients }}</p>
@@ -23,6 +28,7 @@
             <h2>Side Dishes</h2>
             {% for side in sides %}
                 <div class="card meal-card">
+                    <img src="{{ side.featured_image.url }}" class="card-img-top" alt="{{ side.name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ side.name }}</h5>
                         <p class="card-text"><strong>Ingredients:</strong> {{ side.ingredients }}</p>
@@ -30,6 +36,10 @@
                     </div>
                 </div>
             {% endfor %}
+        </div>
+    </div>
+</div>
+
         
 
 {% endblock content %}
