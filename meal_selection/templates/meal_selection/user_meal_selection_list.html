@@ -2,6 +2,8 @@
 {% block content %}
     <div class="container mt-5">
         <h2>Your Meal Selections</h2>
+
+        <p>To create selections, patients must make two selections for Lunch and Dinner</p>
         <a href="{% url 'meal_selection_create' %}" class="btn btn-primary mb-3">Create New Meal Selection</a>
         <div class="list-group">
             {% for selection in object_list %}

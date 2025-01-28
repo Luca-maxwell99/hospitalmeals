@@ -1,5 +1,5 @@
 {% extends 'meals/base.html' %}
-<!---->{% load static %}
+{% load static %}
 {% block content %}
 
 <section class="hero">
@@ -10,7 +10,8 @@
         <h1>Meal Manager</h1>
         <h2>Your Choice</h2>
         <p>Brief description of the app goes here. You can fill this text later.</p>
-        <a href="" class="cta-button">Sign Up/Login</a>
+        <a href="{% url 'account_signup' %}" class="cta-button">Create an account</a>
+        <a href="{% url 'account_login' %}" class="cta-button">Login</a>
     </div>
 </section>
 
