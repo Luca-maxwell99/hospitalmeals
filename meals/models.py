@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Meal(models.Model):
@@ -10,6 +11,7 @@ class Meal(models.Model):
     is_main = models.BooleanField(default=False)
     is_side = models.BooleanField(default=False)
     id = models.AutoField(primary_key=True)
+    featured_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):
         return self.name
