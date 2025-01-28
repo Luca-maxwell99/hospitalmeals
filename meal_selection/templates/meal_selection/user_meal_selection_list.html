@@ -5,7 +5,8 @@
         <a href="{% url 'meal_selection_create' %}" class="btn btn-primary mb-3">Create New Meal Selection</a>
         <div class="list-group">
             {% for selection in object_list %}
-                <a href="{% url 'meal_selection_detail' 1 %}" class="list-group-item list-group-item-action">
+                
+                <a href="{% url 'meal_selection_detail' selection.id %}" class="list-group-item list-group-item-action">
                     {{ selection }}
                 </a>
             {% endfor %}
